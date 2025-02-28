@@ -4,6 +4,26 @@
 
      <title>Cairo Estudio Web</title>
 
+
+      <!-- Vincula Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .carousel-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        .carousel-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+        }
+    </style>
+
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
      <meta name="description" content="Impulsamos tu presencia digital
@@ -358,6 +378,67 @@ https://www.tooplate.com/view/2120-ben-resume
           </div>
       </div>
   </section>
+
+
+  <div class="container mt-5">
+    <h2 style="text-align: center;"> Estos son algunos Sitios Web</h2>
+    <br>
+
+
+    <!-- Carrusel -->
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <!-- Cada imagen con su respectivo texto -->
+            <div class="carousel-item active">
+                <img src="https://designshack.net/wp-content/uploads/multi-device-website-mockup-462-1.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Texto 1</h5>
+                    <p><a href="https://www.ejemplo.com" class="btn btn-light">Ir al sitio</a></p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://designshack.net/wp-content/uploads/multi-device-website-mockup-462-1.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Texto 2</h5>
+                    <p><a href="https://www.ejemplo.com" class="btn btn-light">Ir al sitio</a></p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://designshack.net/wp-content/uploads/multi-device-website-mockup-462-1.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Texto 3</h5>
+                    <p><a href="https://www.ejemplo.com" class="btn btn-light">Ir al sitio</a></p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://designshack.net/wp-content/uploads/multi-device-website-mockup-462-1.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Texto 4</h5>
+                    <p><a href="https://www.ejemplo.com" class="btn btn-light">Ir al sitio</a></p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://designshack.net/wp-content/uploads/multi-device-website-mockup-462-1.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Texto 5</h5>
+                    <p><a href="https://www.ejemplo.com" class="btn btn-light">Ir al sitio</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- Controles del carrusel -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<!-- Vincula Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   
 
 
