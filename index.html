@@ -1,325 +1,611 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<head>
 
-    <title>Marvel HTML Bootstrap 4 Template</title>
+     <title>Cairo Estudio Web</title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/unicons.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
-    <!-- MAIN STYLE -->
-    <link rel="stylesheet" href="css/tooplate-style.css">
-    
+      <!-- Vincula Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .carousel-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        .carousel-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+        }
+    </style>
+
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="Impulsamos tu presencia digital
+     En Cairo Estudio, ofrecemos soluciones digitales personalizadas para potenciar tu negocio. Desde el desarrollo de sitios web modernos y funcionales hasta diseño gráfico profesional, ayudamos a marcas y emprendedores a destacar en el mundo digital.">
+     <meta name="keywords" content="">
+     <meta name="author" content="Tooplate">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+     <link rel="stylesheet" href="css/all.min.css">
+     <link rel="stylesheet" href="css/owl.carousel.min.css">
+     <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="css/tooplate-ben-resume-style.css">
 <!--
-
-Tooplate 2115 Marvel
-
-https://www.tooplate.com/view/2115-marvel
-
+Tooplate 2120 Ben Resume
+https://www.tooplate.com/view/2120-ben-resume
 -->
-  </head>
-  <body>
+</head>
 
-    <!-- MENU -->
-    <nav class="navbar navbar-expand-sm navbar-light">
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+    <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><i class='uil uil-user'></i> Marvel</a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
+            <a class="navbar-brand" href="#">
+                Cairo Estudio
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a href="#about" class="nav-link"><span data-hover="About">About</span></a>
+                        <a href="#Presentaciòn" class="nav-link smoothScroll">Presentaciòn</a>
                     </li>
+
                     <li class="nav-item">
-                        <a href="#project" class="nav-link"><span data-hover="Projects">Projects</span></a>
+                        <a href="#about" class="nav-link smoothScroll">Estrategias</a>
                     </li>
+
                     <li class="nav-item">
-                        <a href="#resume" class="nav-link"><span data-hover="Resume">Resume</span></a>
+                        <a href="#testimonials" class="nav-link smoothScroll">Herramientas</a>
                     </li>
+
                     <li class="nav-item">
-                        <a href="#contact" class="nav-link"><span data-hover="Contact">Contact</span></a>
+                        <a href="#contact" class="nav-link smoothScroll">Propuestas</a>
                     </li>
+
+                    <li class="nav-item">
+                      <a href="#contact" class="nav-link smoothScroll">Mis Proyectos</a>
+                  </li>
                 </ul>
 
-                <ul class="navbar-nav ml-lg-auto">
-                    <div class="ml-lg-4">
-                      <div class="color-mode d-lg-flex justify-content-center align-items-center">
-                        <i class="color-mode-icon"></i>
-                        Color mode
-                      </div>
-                    </div>
-                </ul>
+               
             </div>
+
         </div>
     </nav>
 
-    <!-- ABOUT -->
-    <section class="about full-screen d-lg-flex justify-content-center align-items-center" id="about">
-        <div class="container">
+
+    <!-- HERO -->
+    <section class="hero d-flex flex-column justify-content-center align-items-center" id="intro">
+
+         <div class="container">
             <div class="row">
-                
-                <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">
-                    <div class="about-text">
-                        <small class="small-text">Welcome to <span class="mobile-block">my portfolio website!</span></small>
-                        <h1 class="animated animated-text">
-                            <span class="mr-2">Hey folks, I'm</span>
-                                <div class="animated-info">
-                                    <span class="animated-item">Marvel Sann</span>
-                                    <span class="animated-item">Web Designer</span>
-                                    <span class="animated-item">UI Specialist</span>
-                                </div>
-                        </h1>
 
-                        <p>Building a successful product is a challenge. I am highly energetic in user experience design, interfaces and web development.</p>
-                        
-                        <div class="custom-btn-group mt-4">
-                          <a href="#" class="btn mr-lg-2 custom-btn"><i class='uil uil-file-alt'></i> Download Resume</a>
-                          <a href="#contact" class="btn custom-btn custom-btn-bg custom-btn-link">Get a free quote</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-5 col-md-12 col-12">
-                    <div class="about-image svg">
-                        <img src="images/undraw/undraw_software_engineer_lvl5.svg" class="img-fluid" alt="svg image">
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="project py-5" id="project">
-        <div class="container">
-                
-                <div class="row">
-                  <div class="col-lg-11 text-center mx-auto col-12">
-
-                      <div class="col-lg-8 mx-auto">
-                        <h2>Things I have designed for digital media agencies</h2>
-                      </div>
-
-                      <div class="owl-carousel owl-theme">
-                        <div class="item">
-                          <div class="project-info">
-                            <img src="images/project/project-image01.png" class="img-fluid" alt="project image">
-                          </div>
-                        </div>
-
-                        <div class="item">
-                          <div class="project-info">
-                            <img src="images/project/project-image02.png" class="img-fluid" alt="project image">
-                          </div>
-                        </div>
-
-                        <div class="item">
-                          <div class="project-info">
-                            <img src="images/project/project-image03.png" class="img-fluid" alt="project image">
-                          </div>
-                        </div>
-
-                        <div class="item">
-                          <div class="project-info">
-                            <img src="images/project/project-image04.png" class="img-fluid" alt="project image">
-                          </div>
-                        </div>
-
-                        <div class="item">
-                          <div class="project-info">
-                            <img src="images/project/project-image05.png" class="img-fluid" alt="project image">
-                          </div>
-                        </div>
-                      </div>
-
+                  <div class="mx-auto col-lg-5 col-md-5 col-10">
+                      <img src="images/ben.jpg" class="img-fluid" alt="Ben Resume HTML Template">
                   </div>
-                </div>
-        </div>
-    </section>
 
-    <!-- FEATURES -->
-    <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
-        <div class="container">
-            <div class="row">
+                   <div class="d-flex flex-column justify-content-center align-items-center col-lg-7 col-md-7 col-12">
+                        <div class="hero-text">
 
-                <div class="col-lg-6 col-12">
-                  <h2 class="mb-4">Experiences</h2>
+                            <h1 class="hero-title">Desarrollo web y diseño gráfico </h1>
 
-                    <div class="timeline">
-                        <div class="timeline-wrapper">
-                             <div class="timeline-yr">
-                                  <span>2019</span>
-                             </div>
-                             <div class="timeline-info">
-                                  <h3><span>Project Manager</span><small>Best Studio</small></h3>
-                                  <p>Proin ornare non purus ut rutrum. Nulla facilisi. Aliquam laoreet libero ac pharetra feugiat. Cras ac fermentum nunc, a faucibus nunc.</p>
-                             </div>
+                            <a href="#" class="email-link">
+                              Para expandir tu negocio.
+                            </a>
+                          
                         </div>
-
-                        <div class="timeline-wrapper">
-                            <div class="timeline-yr">
-                                <span>2018</span>
-                            </div>
-                            <div class="timeline-info">
-                                <h3><span>UX Designer</span><small>Digital Ace</small></h3>
-                                <p>Fusce rutrum augue id orci rhoncus molestie. Nunc auctor dignissim lacus vel iaculis.</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-wrapper">
-                            <div class="timeline-yr">
-                                <span>2016</span>
-                            </div>
-                            <div class="timeline-info">
-                                <h3><span>UI Freelancer</h3>
-                                <p>Sed fringilla vitae enim sit amet cursus. Sed cursus dictum tortor quis pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-wrapper">
-                            <div class="timeline-yr">
-                                <span>2014</span>
-                            </div>
-                            <div class="timeline-info">
-                                <h3><span>Junior Designer<small>Crafted Co.</small></h3>
-                                <p>Cras scelerisque scelerisque condimentum. Nullam at volutpat mi. Nunc auctor ipsum eget magna consequat viverra.</p>
-                            </div>
-                        </div>
-
                     </div>
-                </div>
 
-                <div class="col-lg-6 col-12">
-                  <h2 class="mb-4 mobile-mt-2">Educations</h2>
-
-                    <div class="timeline">
-                        <div class="timeline-wrapper">
-                             <div class="timeline-yr">
-                                  <span>2017</span>
-                             </div>
-                             <div class="timeline-info">
-                                  <h3><span>Mobile Web</span><small>Master Design</small></h3>
-                                  <p>Please tell your friends about Tooplate website. That would be very helpful. We need your support.</p>
-                             </div>
-                        </div>
-
-                        <div class="timeline-wrapper">
-                            <div class="timeline-yr">
-                                <span>2015</span>
-                            </div>
-                            <div class="timeline-info">
-                                <h3><span>User Interfaces</span><small>Creative Agency</small></h3>
-                                <p><a rel="nofollow" href="https://www.facebook.com/tooplate">Tooplate</a> is a great website to download HTML templates without any login or email.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-wrapper">
-                            <div class="timeline-yr">
-                                <span>2013</span>
-                            </div>
-                            <div class="timeline-info">
-                                <h3><span>Artwork Design</span><small>New Art School</small></h3>
-                                <p>You can freely use Tooplate's templates for your business or personal sites. You cannot redistribute this template without a permission.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                
             </div>
         </div>
     </section>
 
-    <!-- CONTACT -->
-    <section class="contact py-5" id="contact">
+
+    <section class="about section-padding" id="Presentaciòn">
+     <h3 style="text-align: center;">Presentación</h3>
+      <br>
+
       <div class="container">
-        <div class="row">
-          
-          <div class="col-lg-5 mr-lg-5 col-12">
-            <div class="google-map w-100">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12088.558402180099!2d-73.99373482142036!3d40.75895421922642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855b8fb3083%3A0xa0f9aef176042a5c!2sTheater+District%2C+New+York%2C+NY%2C+USA!5e0!3m2!1sen!2smm!4v1549875377188" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-            </div>
+        
 
-            <div class="contact-info d-flex justify-content-between align-items-center py-4 px-lg-5">
-                <div class="contact-info-item">
-                  <h3 class="mb-3 text-white">Say hello</h3>
-                  <p class="footer-text mb-0">010 020 0960</p>
-                  <p><a href="mailto:hello@company.co">hello@company.co</a></p>
-                </div>
+          <div class="row">
 
-                <ul class="social-links">
-                     <li><a href="#" class="uil uil-dribbble" data-toggle="tooltip" data-placement="left" title="Dribbble"></a></li>
-                     <li><a href="#" class="uil uil-instagram" data-toggle="tooltip" data-placement="left" title="Instagram"></a></li>
-                     <li><a href="#" class="uil uil-youtube" data-toggle="tooltip" data-placement="left" title="Youtube"></a></li>
-                </ul>
-            </div>
+  
+              <div class="col-lg-6 col-md-6 col-12">
+                  <h3 class="mb-4">Impulsamos tu presencia digital</h3>
+  
+                  <p>En <strong>Cairo Estudio</strong>, ofrecemos soluciones digitales personalizadas para potenciar tu negocio. Desde el desarrollo de sitios web modernos y funcionales hasta diseño gráfico profesional, ayudamos a marcas y emprendedores a destacar en el mundo digital.</p>
+  
+                  <p>Trabajamos con tecnología de vanguardia y creatividad estratégica para ofrecer resultados que convierten. Nuestro equipo está listo para transformar tus ideas en una presencia digital impactante.</p>
+  
+                  <ul class="mt-4 mb-5 mb-lg-0 profile-list list-unstyled">
+                      <li><strong>Empresa:</strong> Cairo Estudio</li>
+                      <li><strong>Servicios:</strong> Desarrollo web, diseño gráfico, branding y marketing digital</li>
+                      <li><strong>Website:</strong> # </li>                    
+                  </ul>
+              </div>
+  
+              <div class="col-lg-5 mx-auto col-md-6 col-12">
+                  <img src="images/true-agency.jpg" class="about-image img-fluid" alt="Cairo Estudio - Soluciones Digitales">
+              </div>
+  
           </div>
-
-          <div class="col-lg-6 col-12">
-            <div class="contact-form">
-              <h2 class="mb-4">Interested to work together? Let's talk</h2>
-
-              <form action="" method="get">
-                <div class="row">
-                  <div class="col-lg-6 col-12">
-                    <input type="text" class="form-control" name="name" placeholder="Your Name" id="name">
-                  </div>
-
-                  <div class="col-lg-6 col-12">
-                    <input type="email" class="form-control" name="email" placeholder="Email" id="email">
-                  </div>
-
-                  <div class="col-12">
-                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Message"></textarea>
-                  </div>
-
-                  <div class="ml-lg-auto col-lg-5 col-12">
-                    <input type="submit" class="form-control submit-btn" value="Send Button">
-                  </div>
-                </div>
-              </form>
-            </div>
+          <div class="row about-third">
+              <div class="col-lg-4 col-md-4 col-12">
+                  <h3>Desarrollo Web</h3>
+                  <p>Diseñamos y desarrollamos sitios web personalizados con HTML CSS Y JAVASCRIPT, aparte de contratar el hosting para tu sitio web.</p>
+              </div>
+              <div class="col-lg-4 col-md-4 col-12">
+                  <h3>Diseño Gráfico</h3>
+                  <p>Creación de identidad visual, branding y piezas gráficas impactantes que elevan la imagen de tu negocio con photoshop y otras herramientas de diseño.</p>
+              </div>
+              <div class="col-lg-4 col-md-4 col-12">
+                  <h3>Estrategia Digital</h3>
+                  <p>Implementamos estrategias de marketing digital y redes sociales para aumentar tu alcance y conversión.</p>
+              </div>
           </div>
+      </div>
+  </section>
 
+  <div class="container py-5">
+    <h2 class="text-center mb-4">Galería de Proyectos</h2>
+    <div class="row g-4">
+      
+      <!-- Imagen 1 -->
+      <div class="col-md-4">
+        <div class="card">
+          <img src="/images/Object.png" class="card-img-top" alt="Proyecto 1">
         </div>
       </div>
-    </section>
+  
+      <!-- Imagen 2 -->
+      <div class="col-md-4">
+        <div class="card">
+          <img src="/images/Object.png" class="card-img-top" alt="Proyecto 2">
+        </div>
+      </div>
+  
+      <!-- Imagen 3 -->
+      <div class="col-md-4">
+        <div class="card">
+          <img src="/images/Object.png" class="card-img-top" alt="Proyecto 3">
+        </div>
+      </div>
+  
+      <!-- Imagen 4 -->
+      <div class="col-md-4">
+        <div class="card">
+          <img src="/images/Object.png" class="card-img-top" alt="Proyecto 4">
+        </div>
+      </div>
+  
+      <!-- Imagen 5 -->
+      <div class="col-md-4">
+        <div class="card">
+          <img src="/images/Object.png" class="card-img-top" alt="Proyecto 5">
+        </div>
+      </div>
+  
+      <!-- Imagen 6 -->
+      <div class="col-md-4">
+        <div class="card">
+          <img src="/images/Object.png" class="card-img-top" alt="Proyecto 6">
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
 
-    <!-- FOOTER -->
-     <footer class="footer py-5">
+
+    <!-- TESTIMONIAL -->
+     <section class="testimonials section-padding" id="testimonials">
           <div class="container">
                <div class="row">
 
-                    <div class="col-lg-12 col-12">                                
-                        <p class="copyright-text text-center">Copyright &copy; 2019 Company Name . All rights reserved</p>
-                        <p class="copyright-text text-center">Designed by <a rel="nofollow" href="https://www.facebook.com/tooplate">Tooplate</a></p>
+                    <div class="col-12">
+                        <h3 class="mb-5 text-center">Herramientas</h3>
+
+                        <div class="owl-carousel owl-theme" id="testimonials-carousel">
+                            <div class="item">
+                              <div class="testimonials-thumb d-flex">
+                                <div class="testimonials-image">
+                                    <img src="images/testimonials/testimonial-image01.jpg" class="img-fluid" alt="testimonials image">
+                                </div>
+                            
+                                <div class="testimonials-info">
+                                    <p>Photoshop es un software de edición de imágenes desarrollado por Adobe. Es una de las herramientas más utilizadas en diseño gráfico, fotografía y arte digital.</p>
+                            
+                                    <h6 class="mb-0">Photoshop</h6>
+                                    <span>Diseño gráfico</span>
+                            
+                                    <!-- Botón "Quiero aprender" -->
+                                    <a href="#learn-more" class="btn btn-primary mt-3">Quiero aprender</a>
+                                </div>
+                            </div>
+                            
+                            </div>
+
+                            <div class="item">
+                                <div class="testimonials-thumb d-flex">
+                                    <div class="testimonials-image">
+                                        <img src="images/testimonials/testimonial-image02.jpg" class="img-fluid" alt="testimonials image">
+                                    </div>
+
+                                    <div class="testimonials-info">
+                                        <p>HTML es el lenguaje que define la estructura de una página web. Usa etiquetas para organizar el contenido.</p>
+
+                                        <h6 class="mb-0">Desarrollo web</h6>
+                                        <span>HTML CSS Y JAVASCRIPT</span>
+
+                                          <!-- Botón "Quiero aprender" -->
+                                    <a href="#learn-more" class="btn btn-primary mt-3">Quiero aprender</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="testimonials-thumb d-flex">
+                                    <div class="testimonials-image">
+                                        <img src="images/testimonials/testimonial-image03.jpg" class="img-fluid" alt="testimonials image">
+                                    </div>
+
+                                    <div class="testimonials-info">
+                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
+
+                                        <h6 class="mb-0">Editores de codigo</h6>
+                                        <span>Visual Studio Code</span>
+                                          <!-- Botón "Quiero aprender" -->
+                                    <a href="#learn-more" class="btn btn-primary mt-3">Quiero aprender</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="testimonials-thumb d-flex">
+                                    <div class="testimonials-image">
+                                        <img src="images/testimonials/testimonial-image04.jpg" class="img-fluid" alt="testimonials image">
+                                    </div>
+
+                                    <div class="testimonials-info">
+                                        <p>Es un programa de edición de codigo que permite modificar el texto de un sitio web asi como también su estructura, colores, modelos etc</p>
+
+                                        <h6 class="mb-0">Control de versiones</h6>
+                                        <span>Github</span>
+                                        <br>
+                                          <!-- Botón "Quiero aprender" -->
+                                    <a href="#learn-more" class="btn btn-primary mt-3">Quiero aprender</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                    
+
                </div>
           </div>
-     </footer>
+     </section>
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/Headroom.js"></script>
-    <script src="js/jQuery.headroom.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/smoothscroll.js"></script>
-    <script src="js/custom.js"></script>
 
-  </body>
+
+     <!-- FAQ -->
+     <section class="faq section-padding">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12 col-12">
+                  <h3 class="mb-5">Impulsa tu Negocio con Nuestras Propuestas Digitales</h3>
+                  <div class="accordion" id="accordionExample">
+                      <div class="card">
+                          <div class="card-header" id="headingOne">
+                              <h2 class="mb-0">
+                                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                      Desarrollo de Páginas Web Responsivas
+                                  </button>
+                              </h2>
+                          </div>
+                          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                              <div class="card-body">
+                                  <p>Creamos experiencias digitales que se adaptan perfectamente a cualquier dispositivo, asegurando una navegación fluida y una presencia online sólida.</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="card">
+                          <div class="card-header" id="headingTwo">
+                              <h2 class="mb-0">
+                                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                      Optimización SEO
+                                  </button>
+                              </h2>
+                          </div>
+                          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                              <div class="card-body">
+                                  <p>Con nuestra optimización SEO, tu sitio web alcanzará nuevas alturas, mejorando tu posicionamiento en motores de búsqueda y atrayendo tráfico cualificado.</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="card">
+                          <div class="card-header" id="headingThree">
+                              <h2 class="mb-0">
+                                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                      Diseño de Material Gráfico Digital
+                                  </button>
+                              </h2>
+                          </div>
+                          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                              <div class="card-body">
+                                  <p>Con nuestros diseños llamativos, tu marca se destacará en cada rincón digital, aumentando tu visibilidad y atrayendo a más clientes potenciales.</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="card">
+                          <div class="card-header" id="headingFour">
+                              <h2 class="mb-0">
+                                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                      Desarrollo de Tiendas en Línea
+                                  </button>
+                              </h2>
+                          </div>
+                          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                              <div class="card-body">
+                                  <p>Diseñamos tiendas online personalizadas, con una experiencia de usuario optimizada, para que tus productos lleguen a más personas y aumentes tus ventas.</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="card">
+                          <div class="card-header" id="headingFive">
+                              <h2 class="mb-0">
+                                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                      Diseño de Landing Pages
+                                  </button>
+                              </h2>
+                          </div>
+                          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                              <div class="card-body">
+                                  <p>Optimizamos las páginas de aterrizaje para maximizar conversiones, utilizando diseños atractivos que guían a tus visitantes hacia la acción deseada.</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="card">
+                          <div class="card-header" id="headingSix">
+                              <h2 class="mb-0">
+                                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                      Rediseño de Páginas Web
+                                  </button>
+                              </h2>
+                          </div>
+                          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+                              <div class="card-body">
+                                  <p>Transforma tu página web con un rediseño moderno y optimizado, adaptado a las tendencias actuales y mejorando la experiencia de tus usuarios.</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="card">
+                          <div class="card-header" id="headingSeven">
+                              <h2 class="mb-0">
+                                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                      Consultoría y Mantenimiento
+                                  </button>
+                              </h2>
+                          </div>
+                          <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+                              <div class="card-body">
+                                  <p>Te ofrecemos apoyo continuo y mantenimiento, asegurando que tu sitio web siga siendo funcional, seguro y eficiente a lo largo del tiempo.</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="card">
+                          <div class="card-header" id="headingEight">
+                              <h2 class="mb-0">
+                                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                      Campañas de Publicidad Digital
+                                  </button>
+                              </h2>
+                          </div>
+                          <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+                              <div class="card-body">
+                                  <p>Creamos campañas publicitarias efectivas en Google, Facebook e Instagram, diseñando anuncios visuales que impactan y aumentan tu alcance.</p>
+                              </div>
+                          </div>
+                      </div>
+                      <span class="faq-info-text">¿Tienes alguna pregunta? ¡Contáctanos en <strong>contacto@tuempresa.com</strong>!</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+
+  <div class="container mt-5">
+    <h2 style="text-align: center;"> Estos son algunos Sitios Web</h2>
+    <br>
+
+
+    <!-- Carrusel -->
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <!-- Cada imagen con su respectivo texto -->
+            <div class="carousel-item active">
+                <img src="/images/Object.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Tienda Online de Suplementos y equipo Fitness</h5>
+                    <p><a href="https://nutrigym.netlify.app/" target="_blank" class="btn btn-light">Ir al sitio</a></p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/images/Object.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Texto 2</h5>
+                    <p><a href="https://www.ejemplo.com" class="btn btn-light">Ir al sitio</a></p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/images/Object.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Texto 3</h5>
+                    <p><a href="https://www.ejemplo.com" class="btn btn-light">Ir al sitio</a></p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/images/Object.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Texto 4</h5>
+                    <p><a href="https://www.ejemplo.com" class="btn btn-light">Ir al sitio</a></p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/images/Object.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Texto 5</h5>
+                    <p><a href="https://www.ejemplo.com" class="btn btn-light">Ir al sitio</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- Controles del carrusel -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+  
+      <!-- Plan Básico -->
+      <div class="col-md-4">
+        <div class="card shadow">
+          <div class="card-body text-center">
+            <h5 class="card-title">Plan Básico</h5>
+            <p class="card-text">Ideal para pequeñas empresas o emprendedores que necesitan presencia en línea.</p>
+            <ul class="list-unstyled">
+              <li>✅ Página web estática (HTML, CSS, JS)</li>
+              <li>✅ Diseño básico con Photoshop</li>
+              <li>✅ Configuración de redes sociales</li>
+            </ul>
+            <p class="fw-bold">Duración: 1 semana</p>
+            <a href="#" class="btn btn-primary">Más información</a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Plan Intermedio -->
+      <div class="col-md-4">
+        <div class="card shadow">
+          <div class="card-body text-center">
+            <h5 class="card-title">Plan Intermedio</h5>
+            <p class="card-text">Para aquellos que buscan un sitio más dinámico y presencia en redes.</p>
+            <ul class="list-unstyled">
+              <li>✅ Página web responsiva con interactividad</li>
+              <li>✅ Diseño gráfico personalizado</li>
+              <li>✅ Manejo de redes (3 publicaciones semanales)</li>
+            </ul>
+            <p class="fw-bold">Duración: 2 semanas</p>
+            <a href="#" class="btn btn-primary">Más información</a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Plan Avanzado -->
+      <div class="col-md-4">
+        <div class="card shadow">
+          <div class="card-body text-center">
+            <h5 class="card-title">Plan Avanzado</h5>
+            <p class="card-text">Para negocios que buscan crecimiento digital con una web profesional.</p>
+            <ul class="list-unstyled">
+              <li>✅ Desarrollo web avanzado (efectos, animaciones)</li>
+              <li>✅ Diseño premium en Photoshop</li>
+              <li>✅ Gestión completa de redes (5 publicaciones + interacción)</li>
+            </ul>
+            <p class="fw-bold">Duración: 4 semanas</p>
+            <a href="#" class="btn btn-primary">Más información</a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+
+  
+  
+  
+
+<footer class="bg-dark text-white py-4">
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+      
+      <!-- Imagen -->
+      <img src="/images/ben.jpg" alt="Perfil" class="rounded-circle img-fluid" width="80">
+      
+      <!-- Texto -->
+      <p class="text-center text-md-start mb-2 mb-md-0">
+        "Desarrollador web apasionado por crear experiencias digitales únicas. ¡Hablemos!"
+      </p>
+      
+      <!-- Iconos de Redes Sociales -->
+      <div class="d-flex gap-3">
+        <a href="#" class="text-white fs-4"><i class="fab fa-github"></i></a>
+        <a href="#" class="text-white fs-4"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="text-white fs-4"><i class="fab fa-twitter"></i></a>
+      </div>
+  
+    </div>
+  </footer>
+  
+
+<!-- Vincula Bootstrap JS -->
+<script src="https://kit.fontawesome.com/YOUR-KIT-ID.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Cairo Estudio",
+      "url": "https://tuweb.com",
+      "logo": "https://tuweb.com/logo.png",
+      "description": "Desarrollo web y diseño gráfico para potenciar tu negocio.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+123456789",
+        "contactType": "customer service",
+        "email": "contacto@tuempresa.com"
+      },
+      "sameAs": [
+        "https://facebook.com/cairoestudio",
+        "https://linkedin.com/company/cairoestudio",
+        "https://instagram.com/cairoestudio"
+      ]
+    }
+    </script>
+    
+
+  
+     <!-- SCRIPTS -->
+     <script src="js/jquery.min.js"></script>
+     <script src="js/bootstrap.min.js"></script>
+     <script src="js/smoothscroll.js"></script>
+     <script src="js/owl.carousel.min.js"></script>
+     <script src="js/custom.js"></script>
+
+</body>
 </html>
