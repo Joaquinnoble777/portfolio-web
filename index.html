@@ -1,598 +1,690 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-
-     <title>Cairo Estudio Web</title>
-
-
-      <!-- Vincula Bootstrap CSS -->
+    <title>Cairo Estudio Web</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        .carousel-item img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
+        :root {
+            /* Minimalista Light */
+            --color-bg: #f6f6f6;
+            --color-bg-gradient: linear-gradient(135deg, #f6f6f6 0%, #e9ecef 100%);
+            --color-navbar: #fff;
+            --color-navbar-link: #222;
+            --color-navbar-link-hover: #007bff;
+            --color-primary: #007bff;
+            --color-primary-dark: #0056b3;
+            --color-card-bg: #fff;
+            --color-card-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            --color-card-hover: 0 8px 32px rgba(0,123,255,0.07);
+            --color-title: #222;
+            --color-text: #222;
+            --color-btn-bg: #007bff;
+            --color-btn-bg-hover: #0056b3;
+            --color-section: #fff;
+            --color-faq: #f6f6f6;
         }
-        .carousel-caption {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 10px;
+        [data-theme="dark"] {
+            --color-bg: #181a1b;
+            --color-bg-gradient: linear-gradient(135deg, #181a1b 0%, #23272b 100%);
+            --color-navbar: #23272b;
+            --color-navbar-link: #f6f6f6;
+            --color-navbar-link-hover: #66d9ef;
+            --color-primary: #66d9ef;
+            --color-primary-dark: #a6e22e;
+            --color-card-bg: #23272b;
+            --color-card-shadow: 0 2px 12px rgba(0,0,0,0.18);
+            --color-card-hover: 0 8px 32px rgba(102,217,239,0.10);
+            --color-title: #f6f6f6;
+            --color-text: #f6f6f6;
+            --color-btn-bg: #23272b;
+            --color-btn-bg-hover: #66d9ef;
+            --color-section: #181a1b;
+            --color-faq: #23272b;
+        }
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: var(--color-bg-gradient);
+            color: var(--color-text);
+            transition: background 0.4s, color 0.4s;
+        }
+        .navbar {
+            background: var(--color-navbar);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--color-navbar-link) !important;
+        }
+        .navbar-nav .nav-link {
+            color: var(--color-navbar-link) !important;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: var(--color-navbar-link-hover) !important;
+        }
+        .about, .servicios-digitales, .tecnologia-creatividad, .testimonials, .faq {
+            background: var(--color-section);
+            border-radius: 1.2rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+            margin: 2rem 0;
+            padding: 2rem 0;
+        }
+        .about-image {
+            border-radius: 1rem;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            border: none;
+        }
+        .typewriter-cursor {
+            display: inline-block;
+            animation: blink 1s steps(1) infinite;
+            color: var(--color-primary);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        .card {
+            border-radius: 1rem;
+            background: var(--color-card-bg);
+            box-shadow: var(--color-card-shadow);
+            transition: transform 0.2s, box-shadow 0.2s, background 0.4s;
+            border: none;
+        }
+        .card:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: var(--color-card-hover);
+        }
+        .btn-primary {
+            background: var(--color-btn-bg);
+            border: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: background 0.2s;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: var(--color-btn-bg-hover);
+            color: #fff;
+        }
+        .card-title {
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+        h2, h3, h5, h6 {
+            color: var(--color-title);
+        }
+        .theme-toggle {
+            position: fixed;
+            top: 1.2rem;
+            right: 1.2rem;
+            z-index: 9999;
+            background: var(--color-card-bg);
+            border-radius: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            padding: 0.3rem 1rem;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            border: 1.5px solid var(--color-primary);
+            transition: background 0.3s, border 0.3s;
+        }
+        .theme-toggle span {
+            font-size: 1.2em;
+            margin-left: 0.5em;
+            color: var(--color-primary);
+            transition: color 0.3s;
+        }
+        .theme-toggle input[type="checkbox"] {
+            accent-color: var(--color-primary);
+            width: 1.2em;
+            height: 1.2em;
+        }
+        /* Animación fade-in para las secciones */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: none;
+            }
         }
     </style>
-
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-     <meta name="description" content="Impulsamos tu presencia digital
-     En Cairo Estudio, ofrecemos soluciones digitales personalizadas para potenciar tu negocio. Desde el desarrollo de sitios web modernos y funcionales hasta diseño gráfico profesional, ayudamos a marcas y emprendedores a destacar en el mundo digital.">
-     <meta name="keywords" content="">
-     <meta name="author" content="Tooplate">
-     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-     <link rel="stylesheet" href="css/bootstrap.min.css">
-     <link rel="stylesheet" href="css/all.min.css">
-     <link rel="stylesheet" href="css/owl.carousel.min.css">
-     <link rel="stylesheet" href="css/owl.theme.default.min.css">
-
-     <!-- MAIN CSS -->
-     <link rel="stylesheet" href="css/tooplate-ben-resume-style.css">
-<!--
-Tooplate 2120 Ben Resume
-https://www.tooplate.com/view/2120-ben-resume
--->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="Impulsamos tu presencia digital. En Cairo Estudio, ofrecemos soluciones digitales personalizadas para potenciar tu negocio.">
+    <meta name="keywords" content="desarrollo web, diseño gráfico, portfolio, cairo estudio, sitios web, marketing digital">
+    <meta name="author" content="Cairo Estudio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Bootstrap y FontAwesome -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/tooplate-ben-resume-style.css">
 </head>
 
-<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="50">
+    <!-- Toggle de modo claro/oscuro -->
+    <div class="theme-toggle" id="themeToggle" title="Cambiar modo claro/oscuro">
+        <input type="checkbox" id="toggleSwitch" aria-label="Cambiar modo claro/oscuro">
+        <span id="toggleIcon">🌙</span>
+    </div>
 
     <!-- MENU BAR -->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-
-            <a class="navbar-brand" href="#">
-                Cairo Estudio
-            </a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#">Cairo Estudio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a href="#Presentaciòn" class="nav-link smoothScroll">Presentaciòn</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link smoothScroll">Estrategias</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#testimonials" class="nav-link smoothScroll">Herramientas</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link smoothScroll">Propuestas</a>
-                    </li>
-
-                    <li class="nav-item">
-                      <a href="#contact" class="nav-link smoothScroll">Mis Proyectos</a>
-                  </li>
+                    <li class="nav-item"><a href="#Presentaciòn" class="nav-link smoothScroll">Presentación</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link smoothScroll">Estrategias</a></li>
+                    <li class="nav-item"><a href="#testimonials" class="nav-link smoothScroll">Herramientas</a></li>
+                    <li class="nav-item"><a href="#faq" class="nav-link smoothScroll">Propuestas</a></li>
+                    <li class="nav-item"><a href="#proyectos" class="nav-link smoothScroll">Mis Proyectos</a></li>
                 </ul>
-
-               
             </div>
-
         </div>
     </nav>
 
-
-    <!-- HERO -->
-    <section class="hero d-flex flex-column justify-content-center align-items-center" id="intro">
-
-         <div class="container">
-            <div class="row">
-
-                  <div class="mx-auto col-lg-5 col-md-5 col-10">
-                      <img src="images/ben.png" class="img-fluid" alt="Ben Resume HTML Template">
-                  </div>
-
-                   <div class="d-flex flex-column justify-content-center align-items-center col-lg-7 col-md-7 col-12">
-                        <div class="hero-text">
-
-                            <h1 class="hero-title">Hola!, Soy Desarrollador web y diseñador gráfico </h1>
-
-                            <a href="#" class="email-link">
-                              Yo puedo ayudarte a expandir tu negocio.
-                            </a>
-                          
-                        </div>
-                    </div>
-
+    <!-- HERO / PRESENTACIÓN -->
+    <section class="about section-padding fade-in" id="Presentaciòn">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <h3 class="mb-4">
+                        <span id="typewriter"></span>
+                        <span class="typewriter-cursor">|</span>
+                    </h3>
+                    <p><strong>Cairo Estudio</strong>, ofrecemos soluciones digitales personalizadas para potenciar tu negocio.</p>
+                </div>
+                <div class="col-lg-5 mx-auto col-md-6 col-12">
+                    <img src="images/true-agency.jpg" class="about-image img-fluid" alt="Cairo Estudio Soluciones Digitales">
+                </div>
             </div>
         </div>
     </section>
 
-
-    <section class="about section-padding" id="Presentaciòn">
-      <br>
-
-      <div class="container">
-        
-
-          <div class="row">
-
-  
-              <div class="col-lg-6 col-md-6 col-12">
-                  <h3 class="mb-4">Impulso tu presencia digital</h3>
-  
-                  <p>En <strong>Cairo Estudio</strong>, ofrecemos soluciones digitales personalizadas para potenciar tu negocio. Desde el desarrollo de sitios web modernos y funcionales hasta diseño gráfico profesional, ayudamos a marcas y emprendedores a destacar en el mundo digital.</p>
-  
-                  <p>Trabajamos con tecnología de vanguardia y creatividad estratégica para ofrecer resultados que convierten. Nuestro equipo está listo para transformar tus ideas en una presencia digital impactante.</p>
-  
-              </div>
-  
-              <div class="col-lg-5 mx-auto col-md-6 col-12">
-                  <img src="images/true-agency.jpg" class="about-image img-fluid" alt="Cairo Estudio - Soluciones Digitales">
-              </div>
-  
-          </div>
-          <div class="row about-third">
-              <div class="col-lg-4 col-md-4 col-12">
-                  <h3>Desarrollo Web</h3>
-              </div>
-              <div class="col-lg-4 col-md-4 col-12">
-                  <h3>Diseño Gráfico</h3>
-              </div>
-              <div class="col-lg-4 col-md-4 col-12">
-                  <h3>Estrategia Digital</h3>
-              </div>
-          </div>
-      </div>
-  </section>
-
-
-
-  <div class="container py-5">
-    <h2 class="text-center mb-4">Sitios web creados hasta ahora</h2>
-    <br>
-    <div class="row g-4">
-
-      
-      <!-- Imagen 1 -->
-      <div class="col-md-4">
-        <div class="card">
-          <img src="/images/Object.png" class="card-img-top" alt="Proyecto 1">
-          <div class="card-body">
-            <a href="https://nutrigym.netlify.app/" target="_blank" class="card-text text-dark">Tienda Online de suplementos.</a>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Imagen 2 -->
-      <div class="col-md-4">
-        <div class="card">
-          <img src="/images/gama.png" class="card-img-top" alt="Proyecto 2">
-          <div class="card-body">
-            <a href="https://deft-genie-92373e.netlify.app/" target="_blank" class="card-text text-dark">Instalacion de aire acondicionado.</a>
-          </div>
-        </div>
-      </div>
-  
-      <div class="col-md-4">
-        <div class="card">
-          <img src="/images/tacuarembo.jpg" class="card-img-top" alt="Proyecto 3">
-          <div class="card-body">
-            <a href="https://resplendent-pavlova-89465a.netlify.app/" target="_blank" class="card-text text-dark">Sitio web sobre tacuarembo.</a>
-          </div>
-        </div>
-      </div>
-  
-      
-
-
-      <section class="py-5 bg-light">
+    <!-- ¿QUÉ HACEMOS? -->
+    <section class="servicios-digitales section-padding fade-in">
         <div class="container">
-          <h2 class="text-center mb-5"> Otros tipos de proyectos</h2>
-
-          <div class="row g-4">
-            
-            <div class="col-md-4">
-              <div class="card h-100 shadow-sm">
-                <img src="/images/sd.png" class="card-img-top" alt="Servicio 1">
-                <div class="card-body">
-                  <h5 class="card-title">Estampado textil</h5>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10 col-12 text-center">
+                    <h3 class="mb-4">¿Qué hacemos?</h3>
+                    <p style="font-size: 1.2em;">
+                        Desarrollo de sitios web modernos y funcionales hasta diseño gráfico profesional, ayudamos a marcas y emprendedores a destacar en el mundo digital.
+                    </p>
                 </div>
-              </div>
             </div>
-            <div class="col-md-4">
-              <div class="card h-100 shadow-sm">
-                <img src="/images/d2c38c2c-c5b4-42a4-b9d4-84b727331b05.png" class="card-img-top" alt="Servicio 3">
-                <div class="card-body">
-                  <h5 class="card-title">publicidad para redes sociales y diseño de logos</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card h-100 shadow-sm">
-                <img src="/images/auto rent.png" class="card-img-top" alt="Servicio 3">
-                <div class="card-body">
-                  <h5 class="card-title">Publicidad para Alquiler de Autos</h5>
-                </div>
-              </div>
-            </div>
-    
-          </div>
         </div>
-      </section>
-    
+    </section>
 
+    <!-- ¿CÓMO LO HACEMOS? -->
+    <section class="tecnologia-creatividad section-padding fade-in">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10 col-12 text-center">
+                    <h3 class="mb-4">¿Cómo lo hacemos?</h3>
+                    <p style="font-size: 1.2em;">
+                        Trabajamos con tecnología de vanguardia y creatividad estratégica para ofrecer resultados que convierten. Nuestro equipo está listo para transformar tus ideas en una presencia digital impactante.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- TESTIMONIAL -->
-     <section class="testimonials section-padding" id="testimonials">
-          <div class="container">
-               <div class="row">
-
-                    <div class="col-12">
-                        <h3 class="mb-5 text-center">Herramientas</h3>
-
-                        <div class="owl-carousel owl-theme" id="testimonials-carousel">
-                            <div class="item">
-                              <div class="testimonials-thumb d-flex">
-                                <div class="testimonials-image">
-                                    <img src="images/testimonials/testimonial-image01.jpg" class="img-fluid" alt="testimonials image">
-                                </div>
-                            
-                                <div class="testimonials-info">
-                            
-                                    <h6 class="mb-0">Photoshop</h6>
-                                    <span>Diseño gráfico</span>
-                            
-                                    <!-- Botón "Quiero aprender" -->
-                                    <a href="#learn-more" class="btn btn-primary mt-3">Quiero aprender</a>
-                                </div>
+    <!-- PROYECTOS WEB -->
+    <div class="container py-5 fade-in" id="proyectos">
+        <h2 class="text-center mb-4">Sitios web creados hasta ahora</h2>
+        <p class="text-center mb-5" style="font-size:1.15em; color:#444;">
+            A continuación te muestro algunos de los sitios web que he desarrollado para distintos clientes y proyectos. Cada uno de ellos cuenta con un enlace para visitarlo y un botón para ver más detalles sobre su desarrollo, funcionalidades y tecnologías utilizadas.
+        </p>
+        <div class="row g-4">
+            <!-- Proyecto 1 -->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img src="/images/Object.png" class="card-img-top" alt="Proyecto 1">
+                    <div class="card-body">
+                        <a href="https://nutrigym.netlify.app/" target="_blank" class="card-text text-dark fw-bold">Tienda Online de suplementos.</a>
+                        <button class="btn btn-primary mt-3 w-100" type="button" data-bs-toggle="collapse" data-bs-target="#textoDesplegable1" aria-expanded="false" aria-controls="textoDesplegable1">
+                            Más info
+                        </button>
+                        <div class="collapse mt-2" id="textoDesplegable1">
+                            <div class="card card-body">
+                                Este proyecto es una tienda online responsive hecha con HTML, CSS, JavaScript y Bootstrap. Permite explorar productos, agregar al carrito y ver detalles.
                             </div>
-                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Proyecto 2 -->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img src="/images/gama.png" class="card-img-top" alt="Proyecto 2">
+                    <div class="card-body">
+                        <a href="https://deft-genie-92373e.netlify.app/" target="_blank" class="card-text text-dark fw-bold">Instalación de aire acondicionado.</a>
+                        <button class="btn btn-primary mt-3 w-100" type="button" data-bs-toggle="collapse" data-bs-target="#textoDesplegable2" aria-expanded="false" aria-controls="textoDesplegable2">
+                            Más info
+                        </button>
+                        <div class="collapse mt-2" id="textoDesplegable2">
+                            <div class="card card-body">
+                                Página web para una empresa especializada en instalación, mantenimiento y reparación de aires acondicionados. Diseño responsive y enfocado en servicios profesionales.
                             </div>
-
-                            <div class="item">
-                                <div class="testimonials-thumb d-flex">
-                                    <div class="testimonials-image">
-                                        <img src="images/testimonials/testimonial-image02.jpg" class="img-fluid" alt="testimonials image">
-                                    </div>
-
-                                    <div class="testimonials-info">
-
-                                        <h6 class="mb-0">Desarrollo web</h6>
-                                        <span>HTML CSS Y JAVASCRIPT</span>
-
-                                          <!-- Botón "Quiero aprender" -->
-                                    <a href="#learn-more" class="btn btn-primary mt-3">Quiero aprender</a>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Proyecto 3 -->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img src="/images/tacuarembo.jpg" class="card-img-top" alt="Proyecto 3">
+                    <div class="card-body">
+                        <a href="https://resplendent-pavlova-89465a.netlify.app/" target="_blank" class="card-text text-dark fw-bold">Sitio web sobre Tacuarembó.</a>
+                        <button class="btn btn-primary mt-3 w-100" type="button" data-bs-toggle="collapse" data-bs-target="#textoDesplegable3" aria-expanded="false" aria-controls="textoDesplegable3">
+                            Más info
+                        </button>
+                        <div class="collapse mt-2" id="textoDesplegable3">
+                            <div class="card card-body">
+                                Guía turística digital sobre Tacuarembó. El sitio muestra atractivos turísticos, cultura local, gastronomía y eventos destacados del departamento, con un diseño claro y accesible.
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                            <div class="item">
-                                <div class="testimonials-thumb d-flex">
-                                    <div class="testimonials-image">
-                                        <img src="images/testimonials/testimonial-image03.jpg" class="img-fluid" alt="testimonials image">
-                                    </div>
-
-                                    <div class="testimonials-info">
-
-                                        <h6 class="mb-0">Editores de codigo</h6>
-                                        <span>Visual Studio Code</span>
-                                          <!-- Botón "Quiero aprender" -->
-                                    <a href="#learn-more" class="btn btn-primary mt-3">Quiero aprender</a>
-                                    </div>
-                                </div>
+    <!-- GALERÍA DE DISEÑO GRÁFICO -->
+    <div class="container mt-4 fade-in">
+        <h2 class="text-center mb-4">Galería de Diseño Gráfico</h2>
+        <p class="text-center mb-5" style="font-size:1.1em; color:#444;">
+            Algunos de mis trabajos de diseño gráfico, realizados con herramientas profesionales y creatividad estratégica.
+        </p>
+        <div class="row">
+            <!-- Tarjeta 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="/images/sd.png" class="card-img-top" alt="Diseño de Buzos">
+                    <div class="card-body">
+                        <button class="btn btn-primary mt-3 w-100" type="button" data-bs-toggle="collapse" data-bs-target="#textoDesplegable4" aria-expanded="false" aria-controls="textoDesplegable4">
+                            Más info
+                        </button>
+                        <div class="collapse mt-2" id="textoDesplegable4">
+                            <div class="card card-body">
+                                Proyecto de diseño gráfico donde se crearon estampados personalizados para buzos utilizando Adobe Photoshop e Illustrator. Se aplicaron técnicas de composición visual, manejo de tipografías y conceptos de marca, destacando habilidades en diseño creativo y presentación de productos.
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tarjeta 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="/images/d2c38c2c-c5b4-42a4-b9d4-84b727331b05.png" class="card-img-top" alt="Publicidad Perfume">
+                    <div class="card-body">
+                        <button class="btn btn-primary mt-3 w-100" type="button" data-bs-toggle="collapse" data-bs-target="#textoDesplegable5" aria-expanded="false" aria-controls="textoDesplegable5">
+                            Más info
+                        </button>
+                        <div class="collapse mt-2" id="textoDesplegable5">
+                            <div class="card card-body">
+                                Publicidad diseñada en Adobe Photoshop para una fragancia. Se trabajó el equilibrio visual, la psicología del color y el mensaje publicitario. Este proyecto destaca habilidades en colorimetría, composición estética y creación de campañas visuales atractivas.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tarjeta 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="/images/auto rent.png" class="card-img-top" alt="Alquiler de Autos">
+                    <div class="card-body">
+                        <button class="btn btn-primary mt-3 w-100" type="button" data-bs-toggle="collapse" data-bs-target="#textoDesplegable6" aria-expanded="false" aria-controls="textoDesplegable6">
+                            Más info
+                        </button>
+                        <div class="collapse mt-2" id="textoDesplegable6">
+                            <div class="card card-body">
+                                Diseño de anuncio comercial para servicio de alquiler de autos, creado con Adobe Photoshop e Illustrator. El trabajo se enfocó en una comunicación visual clara y profesional, combinando íconos, tipografía y color para transmitir confianza y dinamismo.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                            <div class="item">
-                                <div class="testimonials-thumb d-flex">
-                                    <div class="testimonials-image">
-                                        <img src="images/testimonials/testimonial-image04.jpg" class="img-fluid" alt="testimonials image">
-                                    </div>
+  
 
-                                    <div class="testimonials-info">
-
-                                        <h6 class="mb-0">Control de versiones</h6>
-                                        <span>Github</span>
-                                        <br>
-                                          <!-- Botón "Quiero aprender" -->
-                                    <a href="#learn-more" class="btn btn-primary mt-3">Quiero aprender</a>
-                                    </div>
+    <!-- FAQ -->
+    <section class="faq section-padding fade-in" id="faq">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-12">
+                    <h3 class="mb-5 text-center">Impulsa tu Negocio con Nuestras Propuestas Digitales</h3>
+                    <div class="accordion" id="accordionExample">
+                        <!-- Pregunta 1 -->
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Desarrollo de Páginas Web Responsivas
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>Creamos experiencias digitales que se adaptan perfectamente a cualquier dispositivo, asegurando una navegación fluida y una presencia online sólida.</p>
                                 </div>
                             </div>
                         </div>
-
+                        <!-- Pregunta 2 -->
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Optimización SEO
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>Con nuestra optimización SEO, tu sitio web alcanzará nuevas alturas, mejorando tu posicionamiento en motores de búsqueda y atrayendo tráfico cualificado.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Pregunta 3 -->
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Diseño de Material Gráfico Digital
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>Con nuestros diseños llamativos, tu marca se destacará en cada rincón digital, aumentando tu visibilidad y atrayendo a más clientes potenciales.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Pregunta 4 -->
+                        <div class="card">
+                            <div class="card-header" id="headingFour">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        Desarrollo de Tiendas en Línea
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>Diseñamos tiendas online personalizadas, con una experiencia de usuario optimizada, para que tus productos lleguen a más personas y aumentes tus ventas.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Pregunta 5 -->
+                        <div class="card">
+                            <div class="card-header" id="headingFive">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                        Diseño de Landing Pages
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>Optimizamos las páginas de aterrizaje para maximizar conversiones, utilizando diseños atractivos que guían a tus visitantes hacia la acción deseada.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Pregunta 6 -->
+                        <div class="card">
+                            <div class="card-header" id="headingSix">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                        Rediseño de Páginas Web
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>Transforma tu página web con un rediseño moderno y optimizado, adaptado a las tendencias actuales y mejorando la experiencia de tus usuarios.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Pregunta 7 -->
+                        <div class="card">
+                            <div class="card-header" id="headingSeven">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                        Consultoría y Mantenimiento
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>Te ofrecemos apoyo continuo y mantenimiento, asegurando que tu sitio web siga siendo funcional, seguro y eficiente a lo largo del tiempo.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Pregunta 8 -->
+                        <div class="card">
+                            <div class="card-header" id="headingEight">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                        Campañas de Publicidad Digital
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>Creamos campañas publicitarias efectivas en Google, Facebook e Instagram, diseñando anuncios visuales que impactan y aumentan tu alcance.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="faq-info-text">¿Tienes alguna pregunta? ¡Contáctanos en <strong>cairoestudioweb@gmail.com</strong>!</span>
                     </div>
-
-               </div>
-          </div>
-     </section>
-
-
-
-     <!-- FAQ -->
-     <section class="faq section-padding">
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-12 col-12">
-                  <h3 class="mb-5">Impulsa tu Negocio con Nuestras Propuestas Digitales</h3>
-                  <div class="accordion" id="accordionExample">
-                      <div class="card">
-                          <div class="card-header" id="headingOne">
-                              <h2 class="mb-0">
-                                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                      Desarrollo de Páginas Web Responsivas
-                                  </button>
-                              </h2>
-                          </div>
-                          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                              <div class="card-body">
-                                  <p>Creamos experiencias digitales que se adaptan perfectamente a cualquier dispositivo, asegurando una navegación fluida y una presencia online sólida.</p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="card">
-                          <div class="card-header" id="headingTwo">
-                              <h2 class="mb-0">
-                                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                      Optimización SEO
-                                  </button>
-                              </h2>
-                          </div>
-                          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                              <div class="card-body">
-                                  <p>Con nuestra optimización SEO, tu sitio web alcanzará nuevas alturas, mejorando tu posicionamiento en motores de búsqueda y atrayendo tráfico cualificado.</p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="card">
-                          <div class="card-header" id="headingThree">
-                              <h2 class="mb-0">
-                                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                      Diseño de Material Gráfico Digital
-                                  </button>
-                              </h2>
-                          </div>
-                          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                              <div class="card-body">
-                                  <p>Con nuestros diseños llamativos, tu marca se destacará en cada rincón digital, aumentando tu visibilidad y atrayendo a más clientes potenciales.</p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="card">
-                          <div class="card-header" id="headingFour">
-                              <h2 class="mb-0">
-                                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                      Desarrollo de Tiendas en Línea
-                                  </button>
-                              </h2>
-                          </div>
-                          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-                              <div class="card-body">
-                                  <p>Diseñamos tiendas online personalizadas, con una experiencia de usuario optimizada, para que tus productos lleguen a más personas y aumentes tus ventas.</p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="card">
-                          <div class="card-header" id="headingFive">
-                              <h2 class="mb-0">
-                                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                      Diseño de Landing Pages
-                                  </button>
-                              </h2>
-                          </div>
-                          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
-                              <div class="card-body">
-                                  <p>Optimizamos las páginas de aterrizaje para maximizar conversiones, utilizando diseños atractivos que guían a tus visitantes hacia la acción deseada.</p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="card">
-                          <div class="card-header" id="headingSix">
-                              <h2 class="mb-0">
-                                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                      Rediseño de Páginas Web
-                                  </button>
-                              </h2>
-                          </div>
-                          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
-                              <div class="card-body">
-                                  <p>Transforma tu página web con un rediseño moderno y optimizado, adaptado a las tendencias actuales y mejorando la experiencia de tus usuarios.</p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="card">
-                          <div class="card-header" id="headingSeven">
-                              <h2 class="mb-0">
-                                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                                      Consultoría y Mantenimiento
-                                  </button>
-                              </h2>
-                          </div>
-                          <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
-                              <div class="card-body">
-                                  <p>Te ofrecemos apoyo continuo y mantenimiento, asegurando que tu sitio web siga siendo funcional, seguro y eficiente a lo largo del tiempo.</p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="card">
-                          <div class="card-header" id="headingEight">
-                              <h2 class="mb-0">
-                                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                                      Campañas de Publicidad Digital
-                                  </button>
-                              </h2>
-                          </div>
-                          <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
-                              <div class="card-body">
-                                  <p>Creamos campañas publicitarias efectivas en Google, Facebook e Instagram, diseñando anuncios visuales que impactan y aumentan tu alcance.</p>
-                              </div>
-                          </div>
-                      </div>
-                      <span class="faq-info-text">¿Tienes alguna pregunta? ¡Contáctanos en <strong>cairoestudioweb@gmail.com
-</strong>!</span>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-
-
-  <div class="container mt-5">
-    <h2 class="text-center">Elegí el plan que más te convenga</h2>
-    <br>
-    <div class="row justify-content-center">
-  
-      <!-- Plan Básico -->
-      <div class="col-md-4 mb-4">
-        <div class="card shadow text-center">
-          <div class="card-body">
-            <h5 class="card-title">Plan Básico</h5>
-            <ul class="list-unstyled">
-              <li>✅ Logotipo básico</li>
-              <li>✅ Creación de red social (si no tiene)</li>
-              <li>✅ Manejo de red social por 1 semana</li>
-              <li>✅ 3 historias semanales</li>
-            </ul>
-            <p class="fw-bold">Precio: $500</p>
-            <a href="#" class="btn btn-primary">Más información</a>
-          </div>
+                </div>
+            </div>
         </div>
-      </div>
-  
-      <!-- Plan Medio -->
-      <div class="col-md-4 mb-4">
-        <div class="card shadow text-center">
-          <div class="card-body">
-            <h5 class="card-title">Plan Medio</h5>
-            <ul class="list-unstyled">
-              <li>✅ Creación o manejo de red social (1 semana)</li>
-              <li>✅ Logotipo básico</li>
-              <li>✅ 3 publicaciones</li>
-              <li>✅ 3 historias semanales</li>
-            </ul>
-            <p class="fw-bold">Precio: $800</p>
-            <a href="#" class="btn btn-primary">Más información</a>
-          </div>
+    </section>
+
+    <!-- PLANES -->
+    <div class="container mt-5 fade-in">
+        <h2 class="text-center mb-4">Elegí el plan que más te convenga</h2>
+        <div class="row justify-content-center">
+            <!-- Plan Básico -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow text-center h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Plan Básico</h5>
+                        <ul class="list-unstyled mb-4">
+                            <li>✅ Logotipo básico</li>
+                            <li>✅ Creación de red social (si no tiene)</li>
+                            <li>✅ Manejo de red social por 1 semana</li>
+                            <li>✅ 3 historias semanales</li>
+                        </ul>
+                        <p class="fw-bold">Precio: $500</p>
+                        <a href="#" class="btn btn-primary">Más información</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Plan Medio -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow text-center h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Plan Medio</h5>
+                        <ul class="list-unstyled mb-4">
+                            <li>✅ Creación o manejo de red social (1 semana)</li>
+                            <li>✅ Logotipo básico</li>
+                            <li>✅ 3 publicaciones</li>
+                            <li>✅ 3 historias semanales</li>
+                        </ul>
+                        <p class="fw-bold">Precio: $800</p>
+                        <a href="#" class="btn btn-primary">Más información</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Plan Estándar -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow text-center h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Plan Estándar</h5>
+                        <ul class="list-unstyled mb-4">
+                            <li>✅ Creación o manejo de red social (1 semana)</li>
+                            <li>✅ Logotipo básico</li>
+                            <li>✅ 3 publicaciones</li>
+                            <li>✅ 3 historias semanales</li>
+                            <li>✅ 3 íconos para historias destacadas</li>
+                        </ul>
+                        <p class="fw-bold">Precio: $1200</p>
+                        <a href="#" class="btn btn-primary">Más información</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Plan Avanzado -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow text-center h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Plan Avanzado</h5>
+                        <ul class="list-unstyled mb-4">
+                            <li>✅ Logotipo básico</li>
+                            <li>✅ 5 publicaciones</li>
+                            <li>✅ 5 historias semanales</li>
+                            <li>✅ Íconos para historias destacadas (Servicios, Promociones, Clientes, Ubicación)</li>
+                        </ul>
+                        <p class="fw-bold">Precio: $2000</p>
+                        <a href="#" class="btn btn-primary">Más información</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Plan Premium -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow text-center h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Plan Premium</h5>
+                        <ul class="list-unstyled mb-4">
+                            <li>✅ Logotipo básico</li>
+                            <li>✅ 6 publicaciones</li>
+                            <li>✅ 3 historias semanales</li>
+                            <li>✅ Íconos para historias destacadas (Servicios, Promociones, Clientes, Ubicación, Productos)</li>
+                            <li>✅ Sitio web básico</li>
+                        </ul>
+                        <p class="fw-bold">Precio: $2500</p>
+                        <a href="#" class="btn btn-primary">Más información</a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-  
-      <!-- Plan Estándar -->
-      <div class="col-md-4 mb-4">
-        <div class="card shadow text-center">
-          <div class="card-body">
-            <h5 class="card-title">Plan Estándar</h5>
-            <ul class="list-unstyled">
-              <li>✅ Creación o manejo de red social (1 semana)</li>
-              <li>✅ Logotipo básico</li>
-              <li>✅ 3 publicaciones</li>
-              <li>✅ 3 historias semanales</li>
-              <li>✅ 3 íconos para historias destacadas</li>
-            </ul>
-            <p class="fw-bold">Precio: $1200</p>
-            <a href="#" class="btn btn-primary">Más información</a>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Plan Avanzado -->
-      <div class="col-md-4 mb-4">
-        <div class="card shadow text-center">
-          <div class="card-body">
-            <h5 class="card-title">Plan Avanzado</h5>
-            <ul class="list-unstyled">
-              <li>✅ Logotipo básico</li>
-              <li>✅ 5 publicaciones</li>
-              <li>✅ 5 historias semanales</li>
-              <li>✅ Íconos para historias destacadas (Servicios, Promociones, Clientes, Ubicación)</li>
-            </ul>
-            <p class="fw-bold">Precio: $ 2000</p> <!-- Podés completar el precio -->
-            <a href="#" class="btn btn-primary">Más información</a>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Plan Premium -->
-      <div class="col-md-4 mb-4">
-        <div class="card shadow text-center">
-          <div class="card-body">
-            <h5 class="card-title">Plan Premium</h5>
-            <ul class="list-unstyled">
-              <li>✅ Logotipo básico</li>
-              <li>✅ 6 publicaciones</li>
-              <li>✅ 3 historias semanales</li>
-              <li>✅ Íconos para historias destacadas (Servicios, Promociones, Clientes, Ubicación, Productos)</li>
-              <li>✅ Sitio web básico</li>
-            </ul>
-            <p class="fw-bold">Precio: $2500</p>
-            <a href="#" class="btn btn-primary">Más información</a>
-          </div>
-        </div>
-      </div>
-  
     </div>
-  </div>
-  
-  <!-- Controles -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#planesCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#planesCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
-</div>
 
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script>
+    // Modo claro/oscuro minimalista
+    (function() {
+        const toggleSwitch = document.getElementById('toggleSwitch');
+        const toggleIcon = document.getElementById('toggleIcon');
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            if (theme === 'dark') {
+                toggleSwitch.checked = true;
+                toggleIcon.textContent = '☀️';
+            } else {
+                toggleSwitch.checked = false;
+                toggleIcon.textContent = '🌙';
+            }
+            localStorage.setItem('theme', theme);
+        }
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+        toggleSwitch.addEventListener('change', function() {
+            setTheme(this.checked ? 'dark' : 'light');
+        });
+    })();
 
+    // Animación máquina de escribir
+    document.addEventListener("DOMContentLoaded", function() {
+        const text = "Impulso tu presencia digital";
+        const el = document.getElementById("typewriter");
+        let i = 0;
+        let typing = true;
 
-  
-  
-  
+        function type() {
+            if (i <= text.length && typing) {
+                el.textContent = text.slice(0, i);
+                i++;
+                setTimeout(type, 80);
+            } else if (i > text.length && typing) {
+                el.textContent = text;
+                typing = false;
+                setTimeout(erase, 5000);
+            }
+        }
 
+        function erase() {
+            if (i >= 0 && !typing) {
+                el.textContent = text.slice(0, i);
+                i--;
+                setTimeout(erase, 40);
+            } else if (i < 0 && !typing) {
+                el.textContent = "";
+                setTimeout(() => {
+                    typing = true;
+                    i = 0;
+                    type();
+                }, 500);
+            }
+        }
 
-  
+        type();
 
-<!-- Vincula Bootstrap JS -->
-<script src="https://kit.fontawesome.com/YOUR-KIT-ID.js" crossorigin="anonymous"></script>
+        // Animación fade-in al hacer scroll
+        function revealOnScroll() {
+            document.querySelectorAll('.fade-in').forEach(function(el) {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.style.animationDelay = "0.2s";
+                    el.classList.add('animated');
+                }
+            });
+        }
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  
-<script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Cairo Estudio",
-      "url": "https://tuweb.com",
-      "logo": "https://tuweb.com/logo.png",
-      "description": "Desarrollo web y diseño gráfico para potenciar tu negocio.",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+123456789",
-        "contactType": "customer service",
-        "email": "cairoestudioweb@gmail.com
-        "
-      },
-      "sameAs": [
-        "https://facebook.com/cairoestudio",
-        "https://linkedin.com/company/cairoestudio",
-        "https://instagram.com/cairoestudio"
-      ]
-    }
+        // Owl Carousel para herramientas
+        $('#testimonials-carousel').owlCarousel({
+            loop: true,
+            margin: 30,
+            nav: false,
+            dots: true,
+            autoplay: true,
+            autoplayTimeout: 3500,
+            responsive: {
+                0: { items: 1 },
+                600: { items: 2 },
+                1000: { items: 2 }
+            }
+        });
+    });
     </script>
-    
-
-  
-     <!-- SCRIPTS -->
-     <script src="js/jquery.min.js"></script>
-     <script src="js/bootstrap.min.js"></script>
-     <script src="js/smoothscroll.js"></script>
-     <script src="js/owl.carousel.min.js"></script>
-     <script src="js/custom.js"></script>
-
 </body>
 </html>
